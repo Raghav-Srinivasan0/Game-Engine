@@ -15,17 +15,25 @@ namespace GameEngine2
         public Shader lamp_shader { get; set; }
         public Camera camera { get; set; }
         public string lampObj { get; set; }
+        public float[] vertices { get; set; }
+        public uint[] triangles { get; set; }
         public Vector3 lampPos { get; set; }
         public Vector3 lampColor { get; set; }
+        public float lightPower { get; set; }
         public Lamp() { }
         public void Load()
         {
             lamp = new Sprite();
             lamp.shader = lamp_shader;
             lamp.camera = camera;
-            lamp.objPath = lampObj;
+            if (triangles == null || vertices == null)
+            {
+                lamp.objPath = lampObj;
+            }
             lamp.center = Vector3.Zero;
             lamp.isLamp = true;
+            lamp.triangles = triangles;
+            lamp.vertices = vertices;
             lamp.Load();
             lamp.Move(lampPos);
         }

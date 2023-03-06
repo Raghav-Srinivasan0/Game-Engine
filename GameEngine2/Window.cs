@@ -105,12 +105,14 @@ namespace GameEngine2
             lamp = new Lamp();
             lamp.lampPos = new Vector3(3,3,3);
             lamp.lampColor = new Vector3(1.0f,1.0f,1.0f);
-            lamp.lampObj = datapath + "test.obj";
             lamp.lamp_shader = shaders[1].Copy();
+            lamp.lightPower = 10;
+            lamp.vertices = _vertices;
+            lamp.triangles = _indices;
 
             box = new Sprite();
             box.isLamp = false;
-            box.lightColor = lamp.lampColor;
+            box.lamp = lamp;
             box.vertices = _vertices;
             box.triangles = _indices;
             box.center = Vector3.Zero;
@@ -119,7 +121,7 @@ namespace GameEngine2
 
             box2 = new Sprite();
             box2.isLamp = false;
-            box2.lightColor = lamp.lampColor;
+            box2.lamp = lamp;
             box2.objPath = datapath + "test.obj";
             box2.center = Vector3.Zero;
             box2.shader = shaders[0].Copy();
@@ -136,8 +138,6 @@ namespace GameEngine2
             lamp.Load();
             box.Load();
             box2.Load();
-
-            lamp.lamp.Scale(0.03f);
 
             // We make the mouse cursor invisible and captured so we can have proper FPS-camera movement.
             CursorState = CursorState.Grabbed;
@@ -222,7 +222,8 @@ namespace GameEngine2
                 _camera.Yaw += deltaX * sensitivity;
                 _camera.Pitch -= deltaY * sensitivity; // Reversed since y-coordinates range from bottom to top
             }
-            box2.Move(new Vector3(0.0001f, 0.0001f, 0));
+            box.Move(new Vector3(0.0001f, 0.0001f, 0));
+            lamp.lamp.Move(new Vector3(-0.0003f, 0, 0));
         }
 
         // In the mouse wheel function, we manage all the zooming of the camera.

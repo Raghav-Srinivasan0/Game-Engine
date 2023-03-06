@@ -14,7 +14,8 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
 {
     public class Sprite
     {
-        public Vector3 lightColor { get; set; }
+        private Vector3 lightColor { get; set; }
+        public Lamp lamp { get; set; }
         public Vector3 objectColor { get; set; }
         public float[] vertices { get; set; }
         public Vector3 center { get; set; }
@@ -108,8 +109,11 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
 
             if(!isLamp)
             {
+                lightColor = lamp.lampColor;
                 shader.SetVector3("lightColor", lightColor);
                 shader.SetVector3("objectColor", objectColor);
+                Trace.WriteLine((float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
+                shader.SetFloat("intensity", (float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
             }
             
         }
@@ -130,6 +134,11 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
             shader.SetMatrix4("model", model);
             shader.SetMatrix4("view", camera.GetViewMatrix());
             shader.SetMatrix4("projection", camera.GetProjectionMatrix());
+
+            if (!isLamp)
+            {
+                shader.SetFloat("intensity", (float)MathHelper.Clamp((lamp.lightPower / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)),0,1));
+            }
 
             GL.DrawElements(PrimitiveType.Triangles, triangles.Length, DrawElementsType.UnsignedInt, 0);
         }
