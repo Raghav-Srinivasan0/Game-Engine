@@ -438,11 +438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\woprg\\Desktop\\Game-Engine\\Gameengine2\\GameEngine2\\GameEngine2.csproj",
+      "projectUniqueName": "C:\\Users\\woprg\\Desktop\\Game-Engine\\GameEngine2\\GameEngine2.csproj",
       "projectName": "GameEngine2",
-      "projectPath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\Gameengine2\\GameEngine2\\GameEngine2.csproj",
+      "projectPath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\GameEngine2\\GameEngine2.csproj",
       "packagesPath": "C:\\Users\\woprg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\Gameengine2\\GameEngine2\\obj\\",
+      "outputPath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\GameEngine2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
