@@ -6,6 +6,8 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using GameEngine2;
 using System.Diagnostics;
+using Jitter;
+using Jitter.Collision;
 
 namespace GameEngine2
 {
@@ -28,6 +30,9 @@ namespace GameEngine2
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
             -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left
         };
+
+        CollisionSystem collision;
+        World world;
 
         private readonly uint[] _indices =
         {
@@ -66,6 +71,10 @@ namespace GameEngine2
 
         protected override void OnLoad()
         {
+            collision = new CollisionSystemSAP();
+            world = new World(collision);
+            world.Gravity = new Jitter.LinearMath.JVector(0,-0.05f,0);
+
             base.OnLoad();
 
             string[] lines = System.IO.File.ReadAllLines(@"config.cfg");
@@ -109,6 +118,7 @@ namespace GameEngine2
             lamp.lightPower = 10;
             lamp.vertices = _vertices;
             lamp.triangles = _indices;
+            lamp.world = world;
 
             box = new Sprite();
             box.isLamp = false;
@@ -118,6 +128,8 @@ namespace GameEngine2
             box.center = Vector3.Zero;
             box.shader = shaders[0].Copy();
             box.objectColor = new Vector3(0.3f, 0.6f, 0.9f);
+            box.world = world;
+            box.gravity = false;
 
             box2 = new Sprite();
             box2.isLamp = false;
@@ -126,6 +138,8 @@ namespace GameEngine2
             box2.center = Vector3.Zero;
             box2.shader = shaders[0].Copy();
             box2.objectColor = new Vector3(0.9f, 0.6f, 0.3f);
+            box2.world = world;
+            box2.initialPosition = new Vector3(0, 10, 0);
 
             // We initialize the camera so that it is 3 units back from where the rectangle is.
             // We also give it the proper aspect ratio.
@@ -161,6 +175,12 @@ namespace GameEngine2
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
             base.OnUpdateFrame(e);
+
+            world.Step(1.0f / 100.0f, true);
+
+            box.deltaTime = (float)e.Time;
+            box2.deltaTime = (float)e.Time;
+            lamp.lamp.deltaTime = (float)e.Time;
 
             if (!IsFocused) // Check to see if the window is focused
             {
@@ -222,8 +242,9 @@ namespace GameEngine2
                 _camera.Yaw += deltaX * sensitivity;
                 _camera.Pitch -= deltaY * sensitivity; // Reversed since y-coordinates range from bottom to top
             }
-            box.Move(new Vector3(0.0001f, 0.0001f, 0));
-            lamp.lamp.Move(new Vector3(-0.0003f, 0, 0));
+
+            // Let the lamp move to show differences in light intensity
+            lamp.lamp.Move(new Vector3(-0.0001f, 0, 0));
         }
 
         // In the mouse wheel function, we manage all the zooming of the camera.

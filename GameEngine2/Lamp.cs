@@ -6,6 +6,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using GameEngine2;
 using System.Diagnostics;
+using Jitter;
 
 namespace GameEngine2
 {
@@ -20,6 +21,7 @@ namespace GameEngine2
         public Vector3 lampPos { get; set; }
         public Vector3 lampColor { get; set; }
         public float lightPower { get; set; }
+        public World world { get; set; }
         public Lamp() { }
         public void Load()
         {
@@ -34,6 +36,7 @@ namespace GameEngine2
             lamp.isLamp = true;
             lamp.triangles = triangles;
             lamp.vertices = vertices;
+            lamp.world = world;
             lamp.Load();
             lamp.Move(lampPos);
         }

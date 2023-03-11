@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "JitterPhysics/0.2.0.20": {
+        "type": "package",
+        "compile": {
+          "lib/net4/Jitter.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net4/Jitter.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "OpenTK/4.7.7": {
         "type": "package",
         "dependencies": {
@@ -214,6 +227,23 @@
     }
   },
   "libraries": {
+    "JitterPhysics/0.2.0.20": {
+      "sha512": "Kgju3DCxS6ot55LX5+tFcALVcEDEfQ7jFkhjY+FR1bOn8Dh1YitomA9E6ZWIFGdKXeYDW1SKhGvKOnqJYjz4gQ==",
+      "type": "package",
+      "path": "jitterphysics/0.2.0.20",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jitterphysics.0.2.0.20.nupkg.sha512",
+        "jitterphysics.nuspec",
+        "lib/net4/Jitter.dll",
+        "lib/net4/Jitter.pdb",
+        "lib/net4/Jitter.xml",
+        "lib/portable-net45+netcore45+wpa81+wp8/Jitter.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8/Jitter.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8/Jitter.xml"
+      ]
+    },
     "OpenTK/4.7.7": {
       "sha512": "T5SV1uSNgB5dpipFsfMkTnK3IIGzUnl1J2foYu3tqmYwlqLnQfQHFZ6ILiNQMPhXdBhrjnxHIU7ZeWJdNW60sw==",
       "type": "package",
@@ -427,6 +457,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "JitterPhysics >= 0.2.0.20",
       "OpenTK >= 4.7.7",
       "StbImageSharp >= 2.27.13"
     ]
@@ -473,6 +504,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "JitterPhysics": {
+            "target": "Package",
+            "version": "[0.2.0.20, )"
+          },
           "OpenTK": {
             "target": "Package",
             "version": "[4.7.7, )"
@@ -498,8 +533,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'JitterPhysics 0.2.0.20' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "JitterPhysics",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

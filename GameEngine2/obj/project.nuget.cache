@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oUhgSEm0AzPamlj6cYQ0zSSQEAxaxi+IB49A7irjm2dXgrVBkr+nSVuy4QreNMCTyEKsmKKWqGBrxVdO1hwTlg==",
+  "dgSpecHash": "guon/R7s4wXT6+LUnYuCKALLp9XhUrg4Aib2Vz5fC/sEDmqrJoYSCu9qb6heAGrUUB+62QkVY1fAB4r+M7nPOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\GameEngine2\\GameEngine2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\woprg\\.nuget\\packages\\jitterphysics\\0.2.0.20\\jitterphysics.0.2.0.20.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk\\4.7.7\\opentk.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.compute\\4.7.7\\opentk.compute.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.core\\4.7.7\\opentk.core.4.7.7.nupkg.sha512",
@@ -18,5 +19,16 @@
     "C:\\Users\\woprg\\.nuget\\packages\\stbimagesharp\\2.27.13\\stbimagesharp.2.27.13.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'JitterPhysics 0.2.0.20' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "JitterPhysics",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

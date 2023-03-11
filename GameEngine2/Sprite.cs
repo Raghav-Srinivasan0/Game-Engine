@@ -9,6 +9,10 @@ using System.Reflection.PortableExecutable;
 using System.Diagnostics;
 using static System.Formats.Asn1.AsnWriter;
 using ObjParser;
+using Jitter;
+using Jitter.Dynamics;
+using Jitter.Collision.Shapes;
+using Jitter.LinearMath;
 
 namespace GameEngine2 // Note: actual namespace depends on the project name.
 {
@@ -23,6 +27,13 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
         public Shader shader { get; set; }
         public Camera camera { get; set; }
         public bool isLamp { get; set; }
+        public float deltaTime { get; set; }
+        public World world { get; set; }
+        private RigidBody rb { get; set; }
+        private Shape shape { get; set; }
+        public bool gravity = true;
+        public Vector3 initialPosition { get; set; }
+
         private Matrix4 movement;
         public string objPath = "";
         private int _vertexArrayObject;
@@ -36,21 +47,25 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
             movement = movement * Matrix4.CreateTranslation(offset.X, offset.Y, offset.Z);
             //Trace.WriteLine(vertices[vertices.Length - 4].ToString() + ", " + vertices[vertices.Length - 3].ToString() + ", " + vertices[vertices.Length - 2].ToString());
         }
+        public void AddForce(Vector3 force)
+        {
+            rb.AddForce(new Jitter.LinearMath.JVector(force.X,force.Y,force.Z));
+        }
         public void RotateX(float angle)
         {
-            movement = movement * Matrix4.CreateRotationX(angle);
+            movement = movement * Matrix4.CreateRotationX(angle * deltaTime);
         }
         public void RotateY(float angle)
         {
-            movement = movement * Matrix4.CreateRotationY(angle);
+            movement = movement * Matrix4.CreateRotationY(angle * deltaTime);
         }
         public void RotateZ(float angle)
         {
-            movement = movement * Matrix4.CreateRotationZ(angle);
+            movement = movement * Matrix4.CreateRotationZ(angle * deltaTime);
         }
         public void Scale(float scale)
         {
-            movement = movement * Matrix4.CreateScale(scale);
+            movement = movement * Matrix4.CreateScale(scale * deltaTime);
         }
         public void Load()
         {
@@ -114,11 +129,17 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
                 shader.SetVector3("objectColor", objectColor);
                 Trace.WriteLine((float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
                 shader.SetFloat("intensity", (float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
+
+                shape = new BoxShape(1.0f, 1.0f, 1.0f);
+                rb = new RigidBody(shape);
+                rb.AffectedByGravity = gravity;
+                rb.Position = new Jitter.LinearMath.JVector(initialPosition.X, initialPosition.Y, initialPosition.Z);
+                world.AddBody(rb);
             }
-            
         }
         public void Draw()
         {
+
             // Send the vertices for a square to the GPU through the buffer
 
             /*
@@ -130,13 +151,15 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
             GL.BindVertexArray(_vertexArrayObject);
             shader.Use();
 
-            var model = Matrix4.Identity*movement;
+            var model = Matrix4.Identity * movement;
             shader.SetMatrix4("model", model);
             shader.SetMatrix4("view", camera.GetViewMatrix());
             shader.SetMatrix4("projection", camera.GetProjectionMatrix());
 
             if (!isLamp)
             {
+                Vector3 currentPos = new Vector3(rb.Position.X, rb.Position.Y, rb.Position.Z);
+                Move(currentPos - center);
                 shader.SetFloat("intensity", (float)MathHelper.Clamp((lamp.lightPower / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)),0,1));
             }
 

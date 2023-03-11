@@ -60,3 +60,4 @@ C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Debug\net7.0\refint\GameEngin
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Debug\net7.0\GameEngine2.pdb
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Debug\net7.0\GameEngine2.genruntimeconfig.cache
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Debug\net7.0\ref\GameEngine2.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\Jitter.dll
