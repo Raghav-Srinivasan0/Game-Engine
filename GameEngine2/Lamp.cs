@@ -22,6 +22,9 @@ namespace GameEngine2
         public Vector3 lampColor { get; set; }
         public float lightPower { get; set; }
         public World world { get; set; }
+        public Vector3 ambient { get; set; }
+        public Vector3 diffuse { get; set; }
+        public Vector3 specular { get; set; }
         public Lamp() { }
         public void Load()
         {

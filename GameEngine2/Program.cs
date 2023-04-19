@@ -19,6 +19,7 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
                 Title = "Game",
                 // This is needed to run on macos
                 Flags = ContextFlags.ForwardCompatible,
+                NumberOfSamples = 1,
             };
 
             // To create a new window, create a class that extends GameWindow, then call Run() on it.
@@ -26,6 +27,7 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
             {
                 window.Run();
             }
+            AudioPlaybackEngine.Instance.Dispose();
         }
     }
 }

@@ -24,11 +24,48 @@ namespace GameEngine2
     {
         private readonly float[] _vertices =
         {
-            // Position         Texture coordinates
-             0.5f,  0.5f, 0.0f, 1.0f, 1.0f, // top right
-             0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
-            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
-            -0.5f,  0.5f, 0.0f, 0.0f, 1.0f  // top left
+            // Positions          Normals              Texture coords
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+             0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
+
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+             0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+             0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+             0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+             0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
+             0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+             0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
+
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
+             0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+             0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
         };
 
         CollisionSystem collision;
@@ -36,12 +73,11 @@ namespace GameEngine2
 
         private readonly uint[] _indices =
         {
-            0, 1, 3,
-            1, 2, 3
         };
 
         private List<Shader> shaders = new List<Shader>();
         private List<Texture> textures = new List<Texture>();
+        private List<CachedSound> sounds = new List<CachedSound>();
 
         private Lamp lamp;
 
@@ -104,7 +140,14 @@ namespace GameEngine2
 
             for (int i = end_shader+1; i < end_texture; i++)
             {
+                Debug.WriteLine(lines[i]);
                 textures.Add(Texture.LoadFromFile(lines[i]));
+            }
+
+            int end_audio = Array.FindIndex(lines, s => s.Equals("end audio"));
+            for (int i = end_texture + 1; i < end_audio; i++)
+            {
+                sounds.Add(new CachedSound(lines[i]));
             }
 
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -119,6 +162,9 @@ namespace GameEngine2
             lamp.vertices = _vertices;
             lamp.triangles = _indices;
             lamp.world = world;
+            lamp.ambient = new Vector3(0.2f, 0.2f, 0.2f);
+            lamp.diffuse = new Vector3(0.5f, 0.5f, 0.5f);
+            lamp.specular = new Vector3(1.0f, 1.0f, 1.0f);
 
             box = new Sprite();
             box.isLamp = false;
@@ -130,6 +176,9 @@ namespace GameEngine2
             box.objectColor = new Vector3(0.3f, 0.6f, 0.9f);
             box.world = world;
             box.gravity = false;
+            box.material_data = new float[] { 1f, 0.5f, 0.31f, 1f, 0.5f, 0.31f, 0.5f, 0.5f, 0.5f, 32f };
+            box.texture = textures[0];
+            box.texture_unit = TextureUnit.Texture0;
 
             box2 = new Sprite();
             box2.isLamp = false;
@@ -140,6 +189,9 @@ namespace GameEngine2
             box2.objectColor = new Vector3(0.9f, 0.6f, 0.3f);
             box2.world = world;
             box2.initialPosition = new Vector3(0, 10, 0);
+            box2.material_data = new float[] { 1f, 0.5f, 0.31f, 1f, 0.5f, 0.31f, 0.5f, 0.5f, 0.5f, 32f };
+            box2.texture = textures[0];
+            box2.texture_unit = TextureUnit.Texture1;
 
             // We initialize the camera so that it is 3 units back from where the rectangle is.
             // We also give it the proper aspect ratio.
@@ -155,6 +207,9 @@ namespace GameEngine2
 
             // We make the mouse cursor invisible and captured so we can have proper FPS-camera movement.
             CursorState = CursorState.Grabbed;
+
+            // Play an audio file specified in the config.cfg file
+            //AudioPlaybackEngine.Instance.PlaySound(sounds[0]);
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)

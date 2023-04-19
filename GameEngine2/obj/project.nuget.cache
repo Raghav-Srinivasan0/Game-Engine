@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "guon/R7s4wXT6+LUnYuCKALLp9XhUrg4Aib2Vz5fC/sEDmqrJoYSCu9qb6heAGrUUB+62QkVY1fAB4r+M7nPOQ==",
+  "dgSpecHash": "oabYFeEgCaggUdAAjSYjnJt0sALl5pE2YtP2kJM1vJkFWfSv39JOk6S+zCyFEsMzsGpyCb96/+kX31dYx1Lkfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\woprg\\Desktop\\Game-Engine\\GameEngine2\\GameEngine2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\woprg\\.nuget\\packages\\jitterphysics\\0.2.0.20\\jitterphysics.0.2.0.20.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio\\2.1.0\\naudio.2.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio.asio\\2.1.0\\naudio.asio.2.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio.core\\2.1.0\\naudio.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio.midi\\2.1.0\\naudio.midi.2.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio.wasapi\\2.1.0\\naudio.wasapi.2.1.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\naudio.winmm\\2.1.0\\naudio.winmm.2.1.0.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk\\4.7.7\\opentk.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.compute\\4.7.7\\opentk.compute.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.core\\4.7.7\\opentk.core.4.7.7.nupkg.sha512",
@@ -17,7 +25,9 @@
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.windowing.desktop\\4.7.7\\opentk.windowing.desktop.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.7.7\\opentk.windowing.graphicslibraryframework.4.7.7.nupkg.sha512",
     "C:\\Users\\woprg\\.nuget\\packages\\stbimagesharp\\2.27.13\\stbimagesharp.2.27.13.nupkg.sha512",
-    "C:\\Users\\woprg\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\woprg\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\woprg\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
   "logs": [
     {

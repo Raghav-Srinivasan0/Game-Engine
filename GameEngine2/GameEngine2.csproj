@@ -5,10 +5,12 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="JitterPhysics" Version="0.2.0.20" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
     <PackageReference Include="OpenTK" Version="4.7.7" />
     <PackageReference Include="StbImageSharp" Version="2.27.13" />
   </ItemGroup>

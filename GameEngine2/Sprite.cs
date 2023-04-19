@@ -19,6 +19,8 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
     public class Sprite
     {
         private Vector3 lightColor { get; set; }
+        public Texture texture { get; set; }
+        public TextureUnit texture_unit { get; set; }
         public Lamp lamp { get; set; }
         public Vector3 objectColor { get; set; }
         public float[] vertices { get; set; }
@@ -32,6 +34,7 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
         private RigidBody rb { get; set; }
         private Shape shape { get; set; }
         public bool gravity = true;
+        public float[] material_data { get; set; }
         public Vector3 initialPosition { get; set; }
 
         private Matrix4 movement;
@@ -69,11 +72,13 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
         }
         public void Load()
         {
+            Debug.WriteLine("Is texture null: " + texture == null);
             if (objPath != "")
             {
                 List<float> vertices_list = new List<float>();
                 List<float> texture_list = new List<float>();
                 List<uint> triangle_list = new List<uint>();
+                List<float> normal_list = new List<float>();
 
                 Obj objParser = new Obj();
                 objParser.LoadObj(objPath);
@@ -93,8 +98,11 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
                     vertices_list_temp.Add(vertices_list[i * 3]);
                     vertices_list_temp.Add(vertices_list[i * 3 + 1]);
                     vertices_list_temp.Add(vertices_list[i * 3 + 2]);
-                    vertices_list_temp.Add(texture_list[i]);
-                    vertices_list_temp.Add(texture_list[i + 1]);
+                    vertices_list_temp.Add(vertices_list[i * 3]);
+                    vertices_list_temp.Add(vertices_list[i * 3 + 1]);
+                    vertices_list_temp.Add(vertices_list[i * 3 + 2]);
+                    vertices_list_temp.Add(texture_list[i * 2]);
+                    vertices_list_temp.Add(texture_list[i * 2 + 1]);
                 }
                 vertices = vertices_list_temp.ToArray();
             }
@@ -114,22 +122,32 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
 
             var vertexLocation = shader.GetAttribLocation("aPos");
             GL.EnableVertexAttribArray(vertexLocation);
-            GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
+            GL.VertexAttribPointer(vertexLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+
+            var normalLocation = shader.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation);
+            GL.VertexAttribPointer(normalLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
 
             var texCoordLocation = shader.GetAttribLocation("aTexCoord");
             GL.EnableVertexAttribArray(texCoordLocation);
-            GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
+            GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
             movement = Matrix4.Identity;
 
             if(!isLamp)
             {
+                texture.Use(texture_unit);
                 lightColor = lamp.lampColor;
                 shader.SetVector3("lightColor", lightColor);
                 shader.SetVector3("objectColor", objectColor);
                 Trace.WriteLine((float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
                 shader.SetFloat("intensity", (float)(1 / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)));
-
+                shader.SetInt("material.diffuse", 0);
+                shader.SetVector3("material.specular", new Vector3(material_data[6], material_data[7], material_data[8]));
+                shader.SetFloat("material.shininess", material_data[9]);
+                shader.SetVector3("light.ambient", lamp.ambient);
+                shader.SetVector3("light.diffuse", lamp.diffuse); // darken the light a bit to fit the scene
+                shader.SetVector3("light.specular", lamp.specular);
                 shape = new BoxShape(1.0f, 1.0f, 1.0f);
                 rb = new RigidBody(shape);
                 rb.AffectedByGravity = gravity;
@@ -149,6 +167,12 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
             */
 
             GL.BindVertexArray(_vertexArrayObject);
+
+            if (!isLamp)
+            {
+                texture.Use(texture_unit);
+            }
+
             shader.Use();
 
             var model = Matrix4.Identity * movement;
@@ -161,9 +185,23 @@ namespace GameEngine2 // Note: actual namespace depends on the project name.
                 Vector3 currentPos = new Vector3(rb.Position.X, rb.Position.Y, rb.Position.Z);
                 Move(currentPos - center);
                 shader.SetFloat("intensity", (float)MathHelper.Clamp((lamp.lightPower / MathHelper.Pow(Vector3.Distance(lamp.lamp.center, center), 2)),0,1));
+                shader.SetVector3("lightPos", lamp.lamp.center);
+                shader.SetVector3("viewPos", camera.Position);
+                shader.SetInt("material.diffuse", 0);
+                shader.SetVector3("material.specular", new Vector3(material_data[6], material_data[7], material_data[8]));
+                shader.SetFloat("material.shininess", material_data[9]);
+                shader.SetVector3("light.ambient", lamp.ambient);
+                shader.SetVector3("light.diffuse", lamp.diffuse); // darken the light a bit to fit the scene
+                shader.SetVector3("light.specular", lamp.specular);
             }
-
-            GL.DrawElements(PrimitiveType.Triangles, triangles.Length, DrawElementsType.UnsignedInt, 0);
+            if (triangles.Length == 0)
+            {
+                GL.DrawArrays(PrimitiveType.Triangles, 0, vertices.Length / 8);
+            }
+            else
+            {
+                GL.DrawElements(PrimitiveType.Triangles, triangles.Length, DrawElementsType.UnsignedInt, 0);
+            }
         }
         public void Unload()
         {

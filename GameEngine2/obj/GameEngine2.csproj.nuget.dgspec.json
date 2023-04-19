@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[0.2.0.20, )"
             },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "OpenTK": {
               "target": "Package",
               "version": "[4.7.7, )"
@@ -71,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
