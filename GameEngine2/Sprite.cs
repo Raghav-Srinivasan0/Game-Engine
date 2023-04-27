@@ -1,18 +1,11 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
-using OpenTK.Windowing.Common;
-using OpenTK.Windowing.GraphicsLibraryFramework;
-using OpenTK.Windowing.Desktop;
-using System.IO;
-using System.Reflection.PortableExecutable;
 using System.Diagnostics;
-using static System.Formats.Asn1.AsnWriter;
 using ObjParser;
 using Jitter;
 using Jitter.Dynamics;
 using Jitter.Collision.Shapes;
-using Jitter.LinearMath;
 
 namespace GameEngine2 // Note: actual namespace depends on the project name.
 {

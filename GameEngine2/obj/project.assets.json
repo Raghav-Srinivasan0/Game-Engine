@@ -15,6 +15,19 @@
           }
         }
       },
+      "LiteNetLib/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/LiteNetLib.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/LiteNetLib.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -403,6 +416,31 @@
         "lib/portable-net45+netcore45+wpa81+wp8/Jitter.dll",
         "lib/portable-net45+netcore45+wpa81+wp8/Jitter.pdb",
         "lib/portable-net45+netcore45+wpa81+wp8/Jitter.xml"
+      ]
+    },
+    "LiteNetLib/1.1.0": {
+      "sha512": "GavpDPs65Y4vvAeECbApWXynTOn7f7IVIHmRKpPmzLWSf3vllcxHN4XPN+Tu3YFqIwOYUdgI8fhkCMhn4FLQCw==",
+      "type": "package",
+      "path": "litenetlib/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LNL.png",
+        "README.md",
+        "lib/net471/LiteNetLib.dll",
+        "lib/net471/LiteNetLib.xml",
+        "lib/net5.0/LiteNetLib.dll",
+        "lib/net5.0/LiteNetLib.xml",
+        "lib/net6.0/LiteNetLib.dll",
+        "lib/net6.0/LiteNetLib.xml",
+        "lib/netcoreapp3.1/LiteNetLib.dll",
+        "lib/netcoreapp3.1/LiteNetLib.xml",
+        "lib/netstandard2.0/LiteNetLib.dll",
+        "lib/netstandard2.0/LiteNetLib.xml",
+        "lib/netstandard2.1/LiteNetLib.dll",
+        "lib/netstandard2.1/LiteNetLib.xml",
+        "litenetlib.1.1.0.nupkg.sha512",
+        "litenetlib.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -871,6 +909,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "JitterPhysics >= 0.2.0.20",
+      "LiteNetLib >= 1.1.0",
       "NAudio >= 2.1.0",
       "OpenTK >= 4.7.7",
       "StbImageSharp >= 2.27.13"
@@ -921,6 +960,10 @@
           "JitterPhysics": {
             "target": "Package",
             "version": "[0.2.0.20, )"
+          },
+          "LiteNetLib": {
+            "target": "Package",
+            "version": "[1.1.0, )"
           },
           "NAudio": {
             "target": "Package",
