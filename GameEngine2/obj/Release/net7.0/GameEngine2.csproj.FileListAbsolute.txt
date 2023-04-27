@@ -30,3 +30,9 @@ C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Release\net7.0\refint\GameEng
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Release\net7.0\GameEngine2.pdb
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Release\net7.0\GameEngine2.genruntimeconfig.cache
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Release\net7.0\ref\GameEngine2.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.Asio.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.Core.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.Midi.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.Wasapi.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Release\net7.0\NAudio.WinMM.dll
