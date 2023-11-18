@@ -39,7 +39,6 @@ C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Core.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Graphics.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Input.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Mathematics.dll
-C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.OpenAL.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Windowing.Common.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Windowing.Desktop.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Windowing.GraphicsLibraryFramework.dll
@@ -67,3 +66,7 @@ C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\NAudio.Core.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\NAudio.Midi.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\NAudio.Wasapi.dll
 C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\NAudio.WinMM.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\obj\Debug\net7.0\GameEngine2.sourcelink.json
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\LiteNetLib.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\OpenTK.Audio.OpenAL.dll
+C:\Users\woprg\Desktop\Game-Engine\GameEngine2\bin\Debug\net7.0\runtimes\linux-x64\native\libglfw-wayland.so.3.3

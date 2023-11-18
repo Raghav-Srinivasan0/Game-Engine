@@ -52,11 +52,11 @@
             },
             "NAudio": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[2.2.1, )"
             },
             "OpenTK": {
               "target": "Package",
-              "version": "[4.7.7, )"
+              "version": "[4.8.1, )"
             },
             "StbImageSharp": {
               "target": "Package",
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

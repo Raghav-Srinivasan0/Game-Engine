@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameEngine2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7579e4a904f81cbb90eb431f3f6b4cfaa5e0cecd")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameEngine2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameEngine2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
